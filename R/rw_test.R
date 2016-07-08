@@ -75,4 +75,7 @@ polygon(c(1:100, 100:1), c(out3.summary[grepl("fitted",rownames(out3.summary)),4
         col = rgb(0,0,1,0.1), border = rgb(0,0,1,0.1))
 lines(out3.summary[grepl("fitted",rownames(out3.summary)),1], col = "blue")
 
-
+windows()
+pairs(cbind(out1.summary[3:102,1],out2.summary[3:102,1],out3.summary[grepl("fitted",rownames(out3.summary)),1]),
+      panel = function(x,y) {points(x,y); abline(c(0,1),col="red", lwd=2)},
+      main = "Comparison of posterior means for:\nno (1), soft (2), and hard constraint (3)")
